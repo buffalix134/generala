@@ -1,0 +1,135 @@
+
+body {
+  min-height: max(884px, 100dvh);
+  font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;
+  margin: 0;
+  display: flex; /* Added for sticky footer structure */
+  flex-direction: column; /* Added for sticky footer structure */
+}
+
+/* This class is present on the root div in the HTML provided by the user */
+/* The slash needs to be escaped in CSS selectors. */
+.group\/design-root {
+  --select-button-svg: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2724px%27 height=%2724px%27 fill=%27rgb(92,113,138)%27 viewBox=%270 0 256 256%27%3e%3cpath d=%27M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z%27%3e%3c/path%3e%3c/svg%3e');
+}
+
+/* Ensure the main content area grows to push the footer down */
+.flex-grow {
+  flex-grow: 1;
+}
+
+/* Basic accessibility improvement */
+button, a[href], select, input {
+  cursor: pointer;
+}
+
+/* Tailwind's hidden class */
+.hidden {
+  display: none !important; /* Ensure it overrides other display properties */
+}
+
+/* Ensure main screens behave as flex containers when visible */
+#new-game-screen.flex, 
+#player-config-screen.flex,
+#round-scoring-screen.flex,
+#game-scoreboard-screen.flex,
+#game-over-screen.flex,
+#settings-screen.flex { /* Added settings screen */
+  display: flex !important; /* Overrides Tailwind's default if necessary and ensures flex behavior */
+}
+
+.emoji-select { 
+    width: 75px; 
+    text-align: center; 
+    padding-right: 2.5rem !important; 
+}
+
+/* Style for score select dropdowns in the round scoring screen */
+.score-select-field { 
+    width: 130px; 
+    text-align: left; 
+    padding-right: 2.5rem !important; 
+}
+
+/* Table styles for scoreboard */
+.scoreboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.scoreboard-table th, .scoreboard-table td {
+    border: 1px solid #eaedf1; /* Light gray border */
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+}
+
+.scoreboard-table th {
+    background-color: #f9fafb; /* Very light gray for header */
+    font-weight: 600;
+    color: #101418;
+}
+
+.scoreboard-table td.score-cell {
+    text-align: right;
+    font-weight: 500;
+    color: #101418; /* Ensuring score text is dark */
+}
+
+.scoreboard-table tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+.scoreboard-table .player-header {
+    min-width: 100px; 
+}
+.scoreboard-table .category-col {
+    font-weight: 500;
+    color: #374151; 
+}
+.scoreboard-table .total-row td {
+    font-weight: bold;
+    color: #101418; 
+    background-color: #e5e7eb; 
+}
+
+/* Game Over Screen Styles */
+#winner-emoji-large {
+    font-size: 4.5rem; 
+    line-height: 1;
+    margin-bottom: 0.5rem; 
+}
+
+#winner-display {
+    /* Centering and basic spacing handled by parent elements and Tailwind classes like 'space-y-2' */
+}
+
+#other-players-scores-list p {
+    padding: 0.35rem 0; 
+    border-bottom: 1px solid #f3f4f6; 
+}
+#other-players-scores-list p:last-child {
+    border-bottom: none;
+}
+#other-players-scores-title {
+    /* Tailwind classes handle styling, 'hidden' class toggled by JS */
+}
+
+/* Settings Screen Styles */
+.settings-player-row {
+    /* using flex items-center space-x-2 py-2 border-b border-gray-200 from JS */
+}
+
+.settings-player-row input[type="text"] {
+    min-width: 120px; /* Ensure name input is reasonably wide */
+}
+.settings-player-row .emoji-select {
+    width: 70px; /* Slightly smaller for settings context if needed */
+    padding-right: 2rem !important; /* Adjust padding for smaller select if needed */
+    font-size: 0.875rem; /* text-sm */
+}
+.settings-player-row button {
+    /* Using px-3 py-1.5 text-xs from JS */
+    flex-shrink: 0; /* Prevent buttons from shrinking too much */
+}
